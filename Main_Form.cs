@@ -21,9 +21,20 @@ namespace cubemap_app
         {
             if (open_file_dialog.ShowDialog() == DialogResult.OK)
             {
-                //Bitmap bm = new Bitmap(1024, 768, 0, System.Drawing.Imaging.PixelFormat.Format48bppRgb,);
-                //bm.
-                //panorama_picture_box.Image = 
+                CubemapLibrary.open_hdri(open_file_dialog.FileName);
+            }
+        }
+
+        private void generate_cubemap_button_Click(object sender, EventArgs e)
+        {
+            CubemapLibrary.make_cube(Int32.Parse(width_text_box.Text));
+        }
+
+        private void save_cubemap_button_Click(object sender, EventArgs e)
+        {
+            if (save_file_dialog.ShowDialog() == DialogResult.OK)
+            {
+                CubemapLibrary.save_cube_dds(save_file_dialog.FileName, Int32.Parse(width_text_box.Text));
             }
         }
 

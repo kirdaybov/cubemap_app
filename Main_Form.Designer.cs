@@ -65,6 +65,8 @@
             this.blur_track_bar = new System.Windows.Forms.TrackBar();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.input_file_text_box = new System.Windows.Forms.TextBox();
+            this.save_file_dialog = new System.Windows.Forms.SaveFileDialog();
             this.status_strip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panorama_picture_box)).BeginInit();
             this.tabs_image.SuspendLayout();
@@ -222,6 +224,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.input_file_text_box);
             this.panel1.Controls.Add(this.open_file_button);
             this.panel1.Location = new System.Drawing.Point(6, 19);
             this.panel1.Name = "panel1";
@@ -310,6 +313,7 @@
             this.generate_cubemap_button.TabIndex = 2;
             this.generate_cubemap_button.Text = "Generate CubeMap";
             this.generate_cubemap_button.UseVisualStyleBackColor = true;
+            this.generate_cubemap_button.Click += new System.EventHandler(this.generate_cubemap_button_Click);
             // 
             // save_cubemap_button
             // 
@@ -319,6 +323,7 @@
             this.save_cubemap_button.TabIndex = 3;
             this.save_cubemap_button.Text = "Save CubeMap";
             this.save_cubemap_button.UseVisualStyleBackColor = true;
+            this.save_cubemap_button.Click += new System.EventHandler(this.save_cubemap_button_Click);
             // 
             // save_to_input_check_box
             // 
@@ -425,6 +430,14 @@
             this.label10.TabIndex = 3;
             this.label10.Text = "Blur CubeMap";
             // 
+            // input_file_text_box
+            // 
+            this.input_file_text_box.Location = new System.Drawing.Point(5, 33);
+            this.input_file_text_box.Name = "input_file_text_box";
+            this.input_file_text_box.Size = new System.Drawing.Size(151, 20);
+            this.input_file_text_box.TabIndex = 2;
+            this.input_file_text_box.Text = "E:\\Work\\hdr_cubemap\\images\\uffizi-large.hdr";
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,6 +459,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tab_cubemap_properties.ResumeLayout(false);
             this.tab_cubemap_properties.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -498,6 +512,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TrackBar blur_track_bar;
         private System.Windows.Forms.TrackBar rotate_z_track_bar;
+        private System.Windows.Forms.TextBox input_file_text_box;
+        private System.Windows.Forms.SaveFileDialog save_file_dialog;
     }
 }
 

@@ -39,47 +39,50 @@
             this.tab_cubemap = new System.Windows.Forms.TabPage();
             this.tabs_options = new System.Windows.Forms.TabControl();
             this.tab_genaral_properties = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tab_cubemap_properties = new System.Windows.Forms.TabPage();
-            this.width_text_box = new System.Windows.Forms.TextBox();
-            this.height_text_box = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.resolution_combo_box = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.generate_cubemap_button = new System.Windows.Forms.Button();
-            this.save_cubemap_button = new System.Windows.Forms.Button();
-            this.save_to_input_check_box = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.process_batch_button = new System.Windows.Forms.Button();
-            this.input_folder_text_box = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.output_folder_text_box = new System.Windows.Forms.TextBox();
-            this.rotate_z_track_bar = new System.Windows.Forms.TrackBar();
-            this.blur_track_bar = new System.Windows.Forms.TrackBar();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.input_folder_text_box = new System.Windows.Forms.TextBox();
+            this.process_batch_button = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.save_to_input_check_box = new System.Windows.Forms.CheckBox();
+            this.save_cubemap_button = new System.Windows.Forms.Button();
+            this.generate_cubemap_button = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.resolution_combo_box = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.height_text_box = new System.Windows.Forms.TextBox();
+            this.width_text_box = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.input_file_text_box = new System.Windows.Forms.TextBox();
+            this.tab_cubemap_properties = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.blur_track_bar = new System.Windows.Forms.TrackBar();
+            this.rotate_z_track_bar = new System.Windows.Forms.TrackBar();
             this.save_file_dialog = new System.Windows.Forms.SaveFileDialog();
+            this.cubemap_picture_box = new System.Windows.Forms.PictureBox();
             this.status_strip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panorama_picture_box)).BeginInit();
             this.tabs_image.SuspendLayout();
             this.tab_panorama.SuspendLayout();
+            this.tab_cubemap.SuspendLayout();
             this.tabs_options.SuspendLayout();
             this.tab_genaral_properties.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tab_cubemap_properties.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rotate_z_track_bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blur_track_bar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotate_z_track_bar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cubemap_picture_box)).BeginInit();
             this.SuspendLayout();
             // 
             // status_strip
@@ -117,10 +120,12 @@
             // 
             // panorama_picture_box
             // 
-            this.panorama_picture_box.BackColor = System.Drawing.Color.Maroon;
-            this.panorama_picture_box.Location = new System.Drawing.Point(0, 0);
+            this.panorama_picture_box.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panorama_picture_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panorama_picture_box.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panorama_picture_box.Location = new System.Drawing.Point(3, 3);
             this.panorama_picture_box.Name = "panorama_picture_box";
-            this.panorama_picture_box.Size = new System.Drawing.Size(434, 386);
+            this.panorama_picture_box.Size = new System.Drawing.Size(587, 478);
             this.panorama_picture_box.TabIndex = 2;
             this.panorama_picture_box.TabStop = false;
             // 
@@ -150,6 +155,7 @@
             // 
             // tab_cubemap
             // 
+            this.tab_cubemap.Controls.Add(this.cubemap_picture_box);
             this.tab_cubemap.Location = new System.Drawing.Point(4, 22);
             this.tab_cubemap.Name = "tab_cubemap";
             this.tab_cubemap.Padding = new System.Windows.Forms.Padding(3);
@@ -188,6 +194,119 @@
             this.tab_genaral_properties.Text = "General Properties";
             this.tab_genaral_properties.UseVisualStyleBackColor = true;
             // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.output_folder_text_box);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.input_folder_text_box);
+            this.panel4.Controls.Add(this.process_batch_button);
+            this.panel4.Location = new System.Drawing.Point(6, 357);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(196, 121);
+            this.panel4.TabIndex = 9;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 47);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(68, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Output folder";
+            // 
+            // output_folder_text_box
+            // 
+            this.output_folder_text_box.Location = new System.Drawing.Point(5, 67);
+            this.output_folder_text_box.Name = "output_folder_text_box";
+            this.output_folder_text_box.Size = new System.Drawing.Size(152, 20);
+            this.output_folder_text_box.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 4);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Input folder (file)";
+            // 
+            // input_folder_text_box
+            // 
+            this.input_folder_text_box.Location = new System.Drawing.Point(5, 24);
+            this.input_folder_text_box.Name = "input_folder_text_box";
+            this.input_folder_text_box.Size = new System.Drawing.Size(152, 20);
+            this.input_folder_text_box.TabIndex = 1;
+            // 
+            // process_batch_button
+            // 
+            this.process_batch_button.Location = new System.Drawing.Point(5, 95);
+            this.process_batch_button.Name = "process_batch_button";
+            this.process_batch_button.Size = new System.Drawing.Size(187, 23);
+            this.process_batch_button.TabIndex = 0;
+            this.process_batch_button.Text = "Process!";
+            this.process_batch_button.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 341);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Batch";
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.save_to_input_check_box);
+            this.panel3.Controls.Add(this.save_cubemap_button);
+            this.panel3.Controls.Add(this.generate_cubemap_button);
+            this.panel3.Location = new System.Drawing.Point(6, 234);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(196, 100);
+            this.panel3.TabIndex = 7;
+            // 
+            // save_to_input_check_box
+            // 
+            this.save_to_input_check_box.AutoSize = true;
+            this.save_to_input_check_box.Location = new System.Drawing.Point(5, 62);
+            this.save_to_input_check_box.Name = "save_to_input_check_box";
+            this.save_to_input_check_box.Size = new System.Drawing.Size(151, 17);
+            this.save_to_input_check_box.TabIndex = 4;
+            this.save_to_input_check_box.Text = "Save *.DDS to input folder";
+            this.save_to_input_check_box.UseVisualStyleBackColor = true;
+            // 
+            // save_cubemap_button
+            // 
+            this.save_cubemap_button.Location = new System.Drawing.Point(4, 32);
+            this.save_cubemap_button.Name = "save_cubemap_button";
+            this.save_cubemap_button.Size = new System.Drawing.Size(188, 23);
+            this.save_cubemap_button.TabIndex = 3;
+            this.save_cubemap_button.Text = "Save CubeMap";
+            this.save_cubemap_button.UseVisualStyleBackColor = true;
+            this.save_cubemap_button.Click += new System.EventHandler(this.save_cubemap_button_Click);
+            // 
+            // generate_cubemap_button
+            // 
+            this.generate_cubemap_button.Location = new System.Drawing.Point(4, 3);
+            this.generate_cubemap_button.Name = "generate_cubemap_button";
+            this.generate_cubemap_button.Size = new System.Drawing.Size(188, 23);
+            this.generate_cubemap_button.TabIndex = 2;
+            this.generate_cubemap_button.Text = "Generate CubeMap";
+            this.generate_cubemap_button.UseVisualStyleBackColor = true;
+            this.generate_cubemap_button.Click += new System.EventHandler(this.generate_cubemap_button_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 218);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Generate and Save";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -210,6 +329,48 @@
             this.panel2.Size = new System.Drawing.Size(196, 84);
             this.panel2.TabIndex = 4;
             // 
+            // resolution_combo_box
+            // 
+            this.resolution_combo_box.FormattingEnabled = true;
+            this.resolution_combo_box.Location = new System.Drawing.Point(4, 30);
+            this.resolution_combo_box.Name = "resolution_combo_box";
+            this.resolution_combo_box.Size = new System.Drawing.Size(187, 21);
+            this.resolution_combo_box.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(168, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(18, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "px";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(79, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(12, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "x";
+            // 
+            // height_text_box
+            // 
+            this.height_text_box.Location = new System.Drawing.Point(94, 3);
+            this.height_text_box.Name = "height_text_box";
+            this.height_text_box.Size = new System.Drawing.Size(72, 20);
+            this.height_text_box.TabIndex = 1;
+            this.height_text_box.Text = "3072";
+            // 
+            // width_text_box
+            // 
+            this.width_text_box.Location = new System.Drawing.Point(3, 3);
+            this.width_text_box.Name = "width_text_box";
+            this.width_text_box.Size = new System.Drawing.Size(72, 20);
+            this.width_text_box.TabIndex = 0;
+            this.width_text_box.Text = "512";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -231,6 +392,14 @@
             this.panel1.Size = new System.Drawing.Size(196, 69);
             this.panel1.TabIndex = 3;
             // 
+            // input_file_text_box
+            // 
+            this.input_file_text_box.Location = new System.Drawing.Point(5, 33);
+            this.input_file_text_box.Name = "input_file_text_box";
+            this.input_file_text_box.Size = new System.Drawing.Size(151, 20);
+            this.input_file_text_box.TabIndex = 2;
+            this.input_file_text_box.Text = "E:\\Work\\hdr_cubemap\\images\\uffizi-large.hdr";
+            // 
             // tab_cubemap_properties
             // 
             this.tab_cubemap_properties.Controls.Add(this.label10);
@@ -245,172 +414,14 @@
             this.tab_cubemap_properties.Text = "Cubemap Properties";
             this.tab_cubemap_properties.UseVisualStyleBackColor = true;
             // 
-            // width_text_box
+            // label10
             // 
-            this.width_text_box.Location = new System.Drawing.Point(3, 3);
-            this.width_text_box.Name = "width_text_box";
-            this.width_text_box.Size = new System.Drawing.Size(72, 20);
-            this.width_text_box.TabIndex = 0;
-            // 
-            // height_text_box
-            // 
-            this.height_text_box.Location = new System.Drawing.Point(94, 3);
-            this.height_text_box.Name = "height_text_box";
-            this.height_text_box.Size = new System.Drawing.Size(72, 20);
-            this.height_text_box.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(79, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(12, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "x";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(168, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "px";
-            // 
-            // resolution_combo_box
-            // 
-            this.resolution_combo_box.FormattingEnabled = true;
-            this.resolution_combo_box.Location = new System.Drawing.Point(4, 30);
-            this.resolution_combo_box.Name = "resolution_combo_box";
-            this.resolution_combo_box.Size = new System.Drawing.Size(187, 21);
-            this.resolution_combo_box.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 218);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Generate and Save";
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.save_to_input_check_box);
-            this.panel3.Controls.Add(this.save_cubemap_button);
-            this.panel3.Controls.Add(this.generate_cubemap_button);
-            this.panel3.Location = new System.Drawing.Point(6, 234);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(196, 100);
-            this.panel3.TabIndex = 7;
-            // 
-            // generate_cubemap_button
-            // 
-            this.generate_cubemap_button.Location = new System.Drawing.Point(4, 3);
-            this.generate_cubemap_button.Name = "generate_cubemap_button";
-            this.generate_cubemap_button.Size = new System.Drawing.Size(188, 23);
-            this.generate_cubemap_button.TabIndex = 2;
-            this.generate_cubemap_button.Text = "Generate CubeMap";
-            this.generate_cubemap_button.UseVisualStyleBackColor = true;
-            this.generate_cubemap_button.Click += new System.EventHandler(this.generate_cubemap_button_Click);
-            // 
-            // save_cubemap_button
-            // 
-            this.save_cubemap_button.Location = new System.Drawing.Point(4, 32);
-            this.save_cubemap_button.Name = "save_cubemap_button";
-            this.save_cubemap_button.Size = new System.Drawing.Size(188, 23);
-            this.save_cubemap_button.TabIndex = 3;
-            this.save_cubemap_button.Text = "Save CubeMap";
-            this.save_cubemap_button.UseVisualStyleBackColor = true;
-            this.save_cubemap_button.Click += new System.EventHandler(this.save_cubemap_button_Click);
-            // 
-            // save_to_input_check_box
-            // 
-            this.save_to_input_check_box.AutoSize = true;
-            this.save_to_input_check_box.Location = new System.Drawing.Point(5, 62);
-            this.save_to_input_check_box.Name = "save_to_input_check_box";
-            this.save_to_input_check_box.Size = new System.Drawing.Size(151, 17);
-            this.save_to_input_check_box.TabIndex = 4;
-            this.save_to_input_check_box.Text = "Save *.DDS to input folder";
-            this.save_to_input_check_box.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 341);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Batch";
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.output_folder_text_box);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.input_folder_text_box);
-            this.panel4.Controls.Add(this.process_batch_button);
-            this.panel4.Location = new System.Drawing.Point(6, 357);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(196, 121);
-            this.panel4.TabIndex = 9;
-            // 
-            // process_batch_button
-            // 
-            this.process_batch_button.Location = new System.Drawing.Point(5, 95);
-            this.process_batch_button.Name = "process_batch_button";
-            this.process_batch_button.Size = new System.Drawing.Size(187, 23);
-            this.process_batch_button.TabIndex = 0;
-            this.process_batch_button.Text = "Process!";
-            this.process_batch_button.UseVisualStyleBackColor = true;
-            // 
-            // input_folder_text_box
-            // 
-            this.input_folder_text_box.Location = new System.Drawing.Point(5, 24);
-            this.input_folder_text_box.Name = "input_folder_text_box";
-            this.input_folder_text_box.Size = new System.Drawing.Size(152, 20);
-            this.input_folder_text_box.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 4);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Input folder (file)";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 47);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Output folder";
-            // 
-            // output_folder_text_box
-            // 
-            this.output_folder_text_box.Location = new System.Drawing.Point(5, 67);
-            this.output_folder_text_box.Name = "output_folder_text_box";
-            this.output_folder_text_box.Size = new System.Drawing.Size(152, 20);
-            this.output_folder_text_box.TabIndex = 3;
-            // 
-            // rotate_z_track_bar
-            // 
-            this.rotate_z_track_bar.Location = new System.Drawing.Point(6, 23);
-            this.rotate_z_track_bar.Name = "rotate_z_track_bar";
-            this.rotate_z_track_bar.Size = new System.Drawing.Size(196, 45);
-            this.rotate_z_track_bar.TabIndex = 0;
-            // 
-            // blur_track_bar
-            // 
-            this.blur_track_bar.Location = new System.Drawing.Point(6, 100);
-            this.blur_track_bar.Name = "blur_track_bar";
-            this.blur_track_bar.Size = new System.Drawing.Size(196, 45);
-            this.blur_track_bar.TabIndex = 1;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 84);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Blur CubeMap";
             // 
             // label9
             // 
@@ -421,22 +432,30 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Rotate CubeMap around Z axis";
             // 
-            // label10
+            // blur_track_bar
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 84);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(74, 13);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Blur CubeMap";
+            this.blur_track_bar.Location = new System.Drawing.Point(6, 100);
+            this.blur_track_bar.Name = "blur_track_bar";
+            this.blur_track_bar.Size = new System.Drawing.Size(196, 45);
+            this.blur_track_bar.TabIndex = 1;
             // 
-            // input_file_text_box
+            // rotate_z_track_bar
             // 
-            this.input_file_text_box.Location = new System.Drawing.Point(5, 33);
-            this.input_file_text_box.Name = "input_file_text_box";
-            this.input_file_text_box.Size = new System.Drawing.Size(151, 20);
-            this.input_file_text_box.TabIndex = 2;
-            this.input_file_text_box.Text = "E:\\Work\\hdr_cubemap\\images\\uffizi-large.hdr";
+            this.rotate_z_track_bar.Location = new System.Drawing.Point(6, 23);
+            this.rotate_z_track_bar.Name = "rotate_z_track_bar";
+            this.rotate_z_track_bar.Size = new System.Drawing.Size(196, 45);
+            this.rotate_z_track_bar.TabIndex = 0;
+            // 
+            // cubemap_picture_box
+            // 
+            this.cubemap_picture_box.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cubemap_picture_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cubemap_picture_box.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cubemap_picture_box.Location = new System.Drawing.Point(3, 3);
+            this.cubemap_picture_box.Name = "cubemap_picture_box";
+            this.cubemap_picture_box.Size = new System.Drawing.Size(587, 478);
+            this.cubemap_picture_box.TabIndex = 3;
+            this.cubemap_picture_box.TabStop = false;
             // 
             // Main_Form
             // 
@@ -453,21 +472,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.panorama_picture_box)).EndInit();
             this.tabs_image.ResumeLayout(false);
             this.tab_panorama.ResumeLayout(false);
+            this.tab_cubemap.ResumeLayout(false);
             this.tabs_options.ResumeLayout(false);
             this.tab_genaral_properties.ResumeLayout(false);
             this.tab_genaral_properties.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tab_cubemap_properties.ResumeLayout(false);
             this.tab_cubemap_properties.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rotate_z_track_bar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blur_track_bar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotate_z_track_bar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cubemap_picture_box)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,6 +535,7 @@
         private System.Windows.Forms.TrackBar rotate_z_track_bar;
         private System.Windows.Forms.TextBox input_file_text_box;
         private System.Windows.Forms.SaveFileDialog save_file_dialog;
+        private System.Windows.Forms.PictureBox cubemap_picture_box;
     }
 }
 

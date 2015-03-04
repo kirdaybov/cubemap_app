@@ -42,5 +42,11 @@ namespace cubemap_app
 
         [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr get_edge(int i);
+
+        [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr get_edge_t(int i, int turns);
+
+        [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void blur();
     }
 }

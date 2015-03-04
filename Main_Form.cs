@@ -98,50 +98,52 @@ namespace cubemap_app
 
             CubemapLibrary.make_cube(cube_edge_i, rotate_z_track_bar.Value);
 
+            CubemapLibrary.blur();
+
             Bitmap bm = new Bitmap(width, height);
 
-            bm = AddSquare(cube_edge_i, bm, 1, 1, Surface.X_N);
-            bm = AddSquare(cube_edge_i, bm, 0, 1, Surface.Y_N);
-            bm = AddSquare(cube_edge_i, bm, 2, 1, Surface.Y_P);
-            bm = AddSquare(cube_edge_i, bm, 1, 0, Surface.Z_P);
-            bm = AddSquare(cube_edge_i, bm, 1, 2, Surface.Z_N);
+            bm = AddSquare(cube_edge_i, bm, 1, 1, Surface.X_P);
+            bm = AddSquare(cube_edge_i, bm, 0, 1, Surface.Y_P);
+            bm = AddSquare(cube_edge_i, bm, 2, 1, Surface.Y_N);
+            bm = AddSquare(cube_edge_i, bm, 1, 0, Surface.Z_P, 3);
+            bm = AddSquare(cube_edge_i, bm, 1, 2, Surface.Z_N, 3);
 
-            bm = AddSquare(cube_edge_i, bm, 3+1, 1, Surface.Y_N);
-            bm = AddSquare(cube_edge_i, bm, 3+0, 1, Surface.X_P);
-            bm = AddSquare(cube_edge_i, bm, 3+2, 1, Surface.X_N);
-            bm = AddSquare(cube_edge_i, bm, 3+1, 0, Surface.Z_P);
-            bm = AddSquare(cube_edge_i, bm, 3+1, 2, Surface.Z_N);
+            bm = AddSquare(cube_edge_i, bm, 3 + 1, 1, Surface.X_N);
+            bm = AddSquare(cube_edge_i, bm, 3 + 0, 1, Surface.Y_N);
+            bm = AddSquare(cube_edge_i, bm, 3 + 2, 1, Surface.Y_P);
+            bm = AddSquare(cube_edge_i, bm, 3 + 1, 0, Surface.Z_P, 1);
+            bm = AddSquare(cube_edge_i, bm, 3 + 1, 2, Surface.Z_N, 1);
 
-            bm = AddSquare(cube_edge_i, bm, 6 + 1, 1, Surface.X_P);
-            bm = AddSquare(cube_edge_i, bm, 6 + 0, 1, Surface.Y_P);
-            bm = AddSquare(cube_edge_i, bm, 6 + 2, 1, Surface.Y_N);
-            bm = AddSquare(cube_edge_i, bm, 6 + 1, 0, Surface.Z_P);
+            bm = AddSquare(cube_edge_i, bm, 6 + 1, 1, Surface.Y_P);
+            bm = AddSquare(cube_edge_i, bm, 6 + 0, 1, Surface.X_N);
+            bm = AddSquare(cube_edge_i, bm, 6 + 2, 1, Surface.X_P);
+            bm = AddSquare(cube_edge_i, bm, 6 + 1, 0, Surface.Z_P, 2);
             bm = AddSquare(cube_edge_i, bm, 6 + 1, 2, Surface.Z_N);
 
-            bm = AddSquare(cube_edge_i, bm, 1, 3 + 1, Surface.Y_P);
-            bm = AddSquare(cube_edge_i, bm, 0, 3 + 1, Surface.X_N);
-            bm = AddSquare(cube_edge_i, bm, 2, 3 + 1, Surface.X_P);
+            bm = AddSquare(cube_edge_i, bm, 1, 3 + 1, Surface.Y_N);
+            bm = AddSquare(cube_edge_i, bm, 0, 3 + 1, Surface.X_P);
+            bm = AddSquare(cube_edge_i, bm, 2, 3 + 1, Surface.X_N);
             bm = AddSquare(cube_edge_i, bm, 1, 3 + 0, Surface.Z_P);
-            bm = AddSquare(cube_edge_i, bm, 1, 3 + 2, Surface.Z_N);
+            bm = AddSquare(cube_edge_i, bm, 1, 3 + 2, Surface.Z_N, 2);
 
             bm = AddSquare(cube_edge_i, bm, 3+1, 3 + 1, Surface.Z_P);
-            bm = AddSquare(cube_edge_i, bm, 3+0, 3 + 1, Surface.X_N);
-            bm = AddSquare(cube_edge_i, bm, 3+2, 3 + 1, Surface.X_P);
-            bm = AddSquare(cube_edge_i, bm, 3+1, 3 + 0, Surface.Y_P);
+            bm = AddSquare(cube_edge_i, bm, 3+0, 3 + 1, Surface.X_P, 1);
+            bm = AddSquare(cube_edge_i, bm, 3+2, 3 + 1, Surface.X_N, 3);
+            bm = AddSquare(cube_edge_i, bm, 3+1, 3 + 0, Surface.Y_P, 2);
             bm = AddSquare(cube_edge_i, bm, 3+1, 3 + 2, Surface.Y_N);
 
             bm = AddSquare(cube_edge_i, bm, 6 + 1, 3 + 1, Surface.Z_N);
-            bm = AddSquare(cube_edge_i, bm, 6 + 0, 3 + 1, Surface.X_N);
-            bm = AddSquare(cube_edge_i, bm, 6 + 2, 3 + 1, Surface.X_P);
+            bm = AddSquare(cube_edge_i, bm, 6 + 0, 3 + 1, Surface.X_N, 3);
+            bm = AddSquare(cube_edge_i, bm, 6 + 2, 3 + 1, Surface.X_P, 1);
             bm = AddSquare(cube_edge_i, bm, 6 + 1, 3 + 0, Surface.Y_P);
-            bm = AddSquare(cube_edge_i, bm, 6 + 1, 3 + 2, Surface.Y_N);
+            bm = AddSquare(cube_edge_i, bm, 6 + 1, 3 + 2, Surface.Y_N, 2);
 
             cubemap_picture_box.BackgroundImage = bm;
         }
 
-        private Bitmap AddSquare(int cube_edge_i, Bitmap bm, int x, int y, Surface k)
+        private Bitmap AddSquare(int cube_edge_i, Bitmap bm, int x, int y, Surface k, int turns = 0)
         {
-            IntPtr p_pixels = CubemapLibrary.get_edge((int)k);
+            IntPtr p_pixels = CubemapLibrary.get_edge_t((int)k, turns);
 
             float[] data = new float[cube_edge_i*cube_edge_i * 3];
             Marshal.Copy(p_pixels, data, 0, cube_edge_i * cube_edge_i * 3);

@@ -37,6 +37,7 @@
             this.tabs_image = new System.Windows.Forms.TabControl();
             this.tab_panorama = new System.Windows.Forms.TabPage();
             this.tab_cubemap = new System.Windows.Forms.TabPage();
+            this.cubemap_picture_box = new System.Windows.Forms.PictureBox();
             this.tabs_options = new System.Windows.Forms.TabControl();
             this.tab_genaral_properties = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -67,12 +68,12 @@
             this.blur_track_bar = new System.Windows.Forms.TrackBar();
             this.rotate_z_track_bar = new System.Windows.Forms.TrackBar();
             this.save_file_dialog = new System.Windows.Forms.SaveFileDialog();
-            this.cubemap_picture_box = new System.Windows.Forms.PictureBox();
             this.status_strip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panorama_picture_box)).BeginInit();
             this.tabs_image.SuspendLayout();
             this.tab_panorama.SuspendLayout();
             this.tab_cubemap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cubemap_picture_box)).BeginInit();
             this.tabs_options.SuspendLayout();
             this.tab_genaral_properties.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -82,7 +83,6 @@
             this.tab_cubemap_properties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blur_track_bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotate_z_track_bar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cubemap_picture_box)).BeginInit();
             this.SuspendLayout();
             // 
             // status_strip
@@ -163,6 +163,17 @@
             this.tab_cubemap.TabIndex = 1;
             this.tab_cubemap.Text = "Cubemap";
             this.tab_cubemap.UseVisualStyleBackColor = true;
+            // 
+            // cubemap_picture_box
+            // 
+            this.cubemap_picture_box.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cubemap_picture_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cubemap_picture_box.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cubemap_picture_box.Location = new System.Drawing.Point(3, 3);
+            this.cubemap_picture_box.Name = "cubemap_picture_box";
+            this.cubemap_picture_box.Size = new System.Drawing.Size(587, 478);
+            this.cubemap_picture_box.TabIndex = 3;
+            this.cubemap_picture_box.TabStop = false;
             // 
             // tabs_options
             // 
@@ -369,7 +380,7 @@
             this.width_text_box.Name = "width_text_box";
             this.width_text_box.Size = new System.Drawing.Size(72, 20);
             this.width_text_box.TabIndex = 0;
-            this.width_text_box.Text = "512";
+            this.width_text_box.Text = "256";
             // 
             // label1
             // 
@@ -446,17 +457,6 @@
             this.rotate_z_track_bar.Size = new System.Drawing.Size(196, 45);
             this.rotate_z_track_bar.TabIndex = 0;
             // 
-            // cubemap_picture_box
-            // 
-            this.cubemap_picture_box.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cubemap_picture_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cubemap_picture_box.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cubemap_picture_box.Location = new System.Drawing.Point(3, 3);
-            this.cubemap_picture_box.Name = "cubemap_picture_box";
-            this.cubemap_picture_box.Size = new System.Drawing.Size(587, 478);
-            this.cubemap_picture_box.TabIndex = 3;
-            this.cubemap_picture_box.TabStop = false;
-            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,6 +473,7 @@
             this.tabs_image.ResumeLayout(false);
             this.tab_panorama.ResumeLayout(false);
             this.tab_cubemap.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cubemap_picture_box)).EndInit();
             this.tabs_options.ResumeLayout(false);
             this.tab_genaral_properties.ResumeLayout(false);
             this.tab_genaral_properties.PerformLayout();
@@ -488,7 +489,6 @@
             this.tab_cubemap_properties.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blur_track_bar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotate_z_track_bar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cubemap_picture_box)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

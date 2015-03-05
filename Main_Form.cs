@@ -87,18 +87,19 @@ namespace cubemap_app
 
         private void save_cubemap_button_Click(object sender, EventArgs e)
         {
-            //if (save_file_dialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    CubemapLibrary.save_cube_dds(save_file_dialog.FileName, Int32.Parse(width_text_box.Text));
-            //}
-
             int cube_edge_i = Int32.Parse(width_text_box.Text);
             int height = cube_edge_i * 6;
             int width = cube_edge_i * 9;
 
             CubemapLibrary.make_cube(cube_edge_i, rotate_z_track_bar.Value);
 
-            CubemapLibrary.blur();
+            CubemapLibrary.blur(30);
+
+            if (save_file_dialog.ShowDialog() == DialogResult.OK)
+            {
+                CubemapLibrary.save_cube_dds(save_file_dialog.FileName, Int32.Parse(width_text_box.Text));
+                return;
+            }
 
             Bitmap bm = new Bitmap(width, height);
 

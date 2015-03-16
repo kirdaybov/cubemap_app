@@ -18,7 +18,10 @@ namespace cubemap_app
     }
 
     class CubemapLibrary
-    {        
+    {
+        [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void init();
+
         [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void open_hdri(String filename);
 
@@ -45,6 +48,12 @@ namespace cubemap_app
 
         [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr get_edge_t(int i, int turns);
+
+        [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr get_blurred_edge(int i);
+
+        [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr get_blurred_edge_t(int i, int turns);
 
         [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void blur(int power);

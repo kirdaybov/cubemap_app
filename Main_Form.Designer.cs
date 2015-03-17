@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.status_strip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.progress_bar = new System.Windows.Forms.ToolStripProgressBar();
@@ -43,6 +44,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.output_folder_button = new System.Windows.Forms.Button();
+            this.input_folder_button = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.output_folder_text_box = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,10 +68,9 @@
             this.blur_track_bar = new System.Windows.Forms.TrackBar();
             this.rotate_z_track_bar = new System.Windows.Forms.TrackBar();
             this.save_file_dialog = new System.Windows.Forms.SaveFileDialog();
-            this.input_folder_button = new System.Windows.Forms.Button();
-            this.output_folder_button = new System.Windows.Forms.Button();
             this.input_folder_browser_dialog = new System.Windows.Forms.FolderBrowserDialog();
             this.output_folder_browser_dialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.status_strip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panorama_picture_box)).BeginInit();
             this.tabs_image.SuspendLayout();
@@ -238,6 +240,26 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(196, 121);
             this.panel4.TabIndex = 9;
+            // 
+            // output_folder_button
+            // 
+            this.output_folder_button.Location = new System.Drawing.Point(161, 65);
+            this.output_folder_button.Name = "output_folder_button";
+            this.output_folder_button.Size = new System.Drawing.Size(28, 23);
+            this.output_folder_button.TabIndex = 7;
+            this.output_folder_button.Text = "...";
+            this.output_folder_button.UseVisualStyleBackColor = true;
+            this.output_folder_button.Click += new System.EventHandler(this.output_folder_button_Click);
+            // 
+            // input_folder_button
+            // 
+            this.input_folder_button.Location = new System.Drawing.Point(161, 22);
+            this.input_folder_button.Name = "input_folder_button";
+            this.input_folder_button.Size = new System.Drawing.Size(28, 23);
+            this.input_folder_button.TabIndex = 6;
+            this.input_folder_button.Text = "...";
+            this.input_folder_button.UseVisualStyleBackColor = true;
+            this.input_folder_button.Click += new System.EventHandler(this.input_folder_button_Click);
             // 
             // label8
             // 
@@ -446,25 +468,9 @@
             this.rotate_z_track_bar.ValueChanged += new System.EventHandler(this.rotate_z_track_bar_ValueChanged);
             this.rotate_z_track_bar.MouseCaptureChanged += new System.EventHandler(this.rotate_z_track_bar_MouseCaptureChanged);
             // 
-            // input_folder_button
+            // timer1
             // 
-            this.input_folder_button.Location = new System.Drawing.Point(161, 22);
-            this.input_folder_button.Name = "input_folder_button";
-            this.input_folder_button.Size = new System.Drawing.Size(28, 23);
-            this.input_folder_button.TabIndex = 6;
-            this.input_folder_button.Text = "...";
-            this.input_folder_button.UseVisualStyleBackColor = true;
-            this.input_folder_button.Click += new System.EventHandler(this.input_folder_button_Click);
-            // 
-            // output_folder_button
-            // 
-            this.output_folder_button.Location = new System.Drawing.Point(161, 65);
-            this.output_folder_button.Name = "output_folder_button";
-            this.output_folder_button.Size = new System.Drawing.Size(28, 23);
-            this.output_folder_button.TabIndex = 7;
-            this.output_folder_button.Text = "...";
-            this.output_folder_button.UseVisualStyleBackColor = true;
-            this.output_folder_button.Click += new System.EventHandler(this.output_folder_button_Click);
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main_Form
             // 
@@ -546,6 +552,7 @@
         private System.Windows.Forms.Button input_folder_button;
         private System.Windows.Forms.FolderBrowserDialog input_folder_browser_dialog;
         private System.Windows.Forms.FolderBrowserDialog output_folder_browser_dialog;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

@@ -219,6 +219,8 @@ namespace cubemap_app
 
             panorama_picture_box.BackgroundImage = bm;
             input_file_text_box.Text = FileName;
+
+            timer1.Enabled = true;
         }
 
         private void UpdateCubemap()
@@ -292,6 +294,45 @@ namespace cubemap_app
                 cube_edge_i = 256;
                 edge_size_text_box.Text = cube_edge_i.ToString();
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            IntPtr p_pixels = CubemapLibrary.get_pixels();
+            int width = CubemapLibrary.get_width();
+            int height = CubemapLibrary.get_height();
+
+            float[] data = new float[width * height * 3];
+
+            Marshal.Copy(p_pixels, data, 0, width * height * 3);
+
+            Bitmap bm = (Bitmap)panorama_picture_box.BackgroundImage;// new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            System.Drawing.Imaging.BitmapData bm_data = bm.LockBits(new Rectangle(0, 0, width, height), System.Drawing.Imaging.ImageLockMode.ReadWrite, bm.PixelFormat);
+
+            IntPtr Iptr = bm_data.Scan0;
+            byte[] pixels = new byte[width * height * 3];
+
+            Random rand = new Random();
+
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    int index = 3 * (i + j * width);
+                    float r = rand.Next(255); //r *= 255;
+                    float g = rand.Next(255); //g *= 255;
+                    float b = rand.Next(255); //b *= 255;
+
+                    pixels[index] = (byte)b;
+                    pixels[index + 1] = (byte)g;
+                    pixels[index + 2] = (byte)r;
+                }
+            }
+
+            Marshal.Copy(pixels, 0, Iptr, width * height * 3);
+            bm.UnlockBits(bm_data);
+
+            panorama_picture_box.BackgroundImage = bm;
         }
 
     }

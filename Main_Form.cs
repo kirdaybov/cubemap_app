@@ -298,38 +298,43 @@ namespace cubemap_app
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            IntPtr p_pixels = CubemapLibrary.get_pixels();
-            int width = CubemapLibrary.get_width();
-            int height = CubemapLibrary.get_height();
+            //Graphics g = Graphics.FromImage(panorama_picture_box.Image);
 
-            float[] data = new float[width * height * 3];
-
-            Marshal.Copy(p_pixels, data, 0, width * height * 3);
-
-            Bitmap bm = (Bitmap)panorama_picture_box.BackgroundImage;// new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            int width = 2048;
+            int height = 2048;
+            
+            Bitmap bm = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            
             System.Drawing.Imaging.BitmapData bm_data = bm.LockBits(new Rectangle(0, 0, width, height), System.Drawing.Imaging.ImageLockMode.ReadWrite, bm.PixelFormat);
 
             IntPtr Iptr = bm_data.Scan0;
-            byte[] pixels = new byte[width * height * 3];
+            byte[] pixels = new byte[width * height * 4];
 
             Random rand = new Random();
 
-            for (int i = 0; i < width; i++)
+            unsafe 
             {
-                for (int j = 0; j < height; j++)
+                byte* pixel_begin = (byte*)Iptr;
+                for (int i = 0; i < width; i++)
                 {
-                    int index = 3 * (i + j * width);
-                    float r = rand.Next(255); //r *= 255;
-                    float g = rand.Next(255); //g *= 255;
-                    float b = rand.Next(255); //b *= 255;
-
-                    pixels[index] = (byte)b;
-                    pixels[index + 1] = (byte)g;
-                    pixels[index + 2] = (byte)r;
+                    byte* pixel_cur_line = pixel_begin + i * bm_data.Stride;
+                    for (int j = 0; j < height; j += 4)
+                    {
+                        //int index = 4 * (i + j * width);
+                        //float r = rand.Next(255); //r *= 255;
+                        //float g = rand.Next(255); //g *= 255;
+                        //float b = rand.Next(255); //b *= 255;
+                        //
+                        pixel_cur_line[j] = 128;
+                        pixel_cur_line[j + 1] = (byte)(i % 255);
+                        pixel_cur_line[j + 2] = (byte)(j % 255);
+                        pixel_cur_line[j + 3] = (byte)245;
+                    }
                 }
             }
+            
 
-            Marshal.Copy(pixels, 0, Iptr, width * height * 3);
+            //Marshal.Copy(pixels, 0, Iptr, width * height * 4);
             bm.UnlockBits(bm_data);
 
             panorama_picture_box.BackgroundImage = bm;

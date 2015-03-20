@@ -124,7 +124,7 @@
             // panorama_picture_box
             // 
             this.panorama_picture_box.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panorama_picture_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panorama_picture_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panorama_picture_box.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panorama_picture_box.Location = new System.Drawing.Point(3, 3);
             this.panorama_picture_box.Name = "panorama_picture_box";
@@ -470,6 +470,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main_Form

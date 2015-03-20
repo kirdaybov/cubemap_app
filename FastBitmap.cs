@@ -10,13 +10,14 @@ namespace cubemap_app
 {
     class FastBitmap
     {
-        public IntPtr p_pixels = IntPtr.Zero;
-        public byte[] pixel_data;
-        public int width;
-        public int height;
-        public void SetPixel(int x, int y, Color color)
-        {
-            int index = x + 
-        }
+        //public FastBitmap(Bitmap bm)
+        //public IntPtr p_pixels = IntPtr.Zero;
+        //public byte[] pixel_data;
+        //public int width;
+        //public int height;
+        //public void SetPixel(int x, int y, Color color)
+        //{
+        //    int index = x + 
+        //}
     }
 }

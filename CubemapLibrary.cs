@@ -57,5 +57,8 @@ namespace cubemap_app
 
         [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void blur(int power);
+
+        [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr render();
     }
 }

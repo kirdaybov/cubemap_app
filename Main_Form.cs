@@ -27,7 +27,8 @@ namespace cubemap_app
         {
             if (open_file_dialog.ShowDialog() == DialogResult.OK)
             {
-                LoadPanorama(open_file_dialog.FileName);                
+                LoadPanorama(open_file_dialog.FileName);
+                DrawPreview();
             }
         }
 
@@ -51,6 +52,53 @@ namespace cubemap_app
                     return;
                 }
             }
+        }
+
+        private void DrawPreview()
+        {
+            IntPtr render = CubemapLibrary.render();
+            
+            int width = 1024;
+            int height = 1024;
+
+            float[] render_p = new float[width * height * 3];
+            Marshal.Copy(render, render_p, 0, width * height * 3);
+
+            Bitmap bm = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            System.Drawing.Imaging.BitmapData bm_data = bm.LockBits(new Rectangle(0, 0, width, height), System.Drawing.Imaging.ImageLockMode.ReadWrite, bm.PixelFormat);
+
+            IntPtr Iptr = bm_data.Scan0;
+            byte[] pixels = new byte[width * height * 4];
+
+            Random rand = new Random();
+
+            unsafe
+            {
+                byte* pixel_begin = (byte*)Iptr;
+                for (int i = 0; i < height; i++)
+                {
+                    byte* pixel_cur_line = pixel_begin + i * bm_data.Stride;
+                    for (int j = 0; j < width; j++)
+                    {
+                        //int index = 4 * (i + j * width);
+                        //float r = rand.Next(255); //r *= 255;
+                        //float g = rand.Next(255); //g *= 255;
+                        //float b = rand.Next(255); //b *= 255;
+                        //
+                        pixel_cur_line[4*j    ] = 255;
+                        pixel_cur_line[4*j + 1] = (byte)(255*render_p[(j + (height - i - 1) * width) * 3]    );
+                        pixel_cur_line[4*j + 2] = (byte)(255*render_p[(j + (height - i - 1) * width) * 3 + 1]);
+                        pixel_cur_line[4*j + 3] = (byte)(255*render_p[(j + (height - i - 1) * width) * 3 + 2]);
+                    }
+                }
+            }
+
+
+            //Marshal.Copy(pixels, 0, Iptr, width * height * 4);
+            bm.UnlockBits(bm_data);
+
+            preview_picture_box.BackgroundImage = bm;
         }
 
         private void DrawCubemap()
@@ -298,6 +346,8 @@ namespace cubemap_app
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //DrawPreview();
+            return;
             //Graphics g = Graphics.FromImage(panorama_picture_box.Image);
 
             int width = 2048;
@@ -337,7 +387,7 @@ namespace cubemap_app
             //Marshal.Copy(pixels, 0, Iptr, width * height * 4);
             bm.UnlockBits(bm_data);
 
-            panorama_picture_box.BackgroundImage = bm;
+            preview_picture_box.BackgroundImage = bm;
         }
 
     }

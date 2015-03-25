@@ -71,6 +71,8 @@
             this.input_folder_browser_dialog = new System.Windows.Forms.FolderBrowserDialog();
             this.output_folder_browser_dialog = new System.Windows.Forms.FolderBrowserDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tab_preview = new System.Windows.Forms.TabPage();
+            this.preview_picture_box = new System.Windows.Forms.PictureBox();
             this.status_strip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panorama_picture_box)).BeginInit();
             this.tabs_image.SuspendLayout();
@@ -86,6 +88,8 @@
             this.tab_cubemap_properties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blur_track_bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotate_z_track_bar)).BeginInit();
+            this.tab_preview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.preview_picture_box)).BeginInit();
             this.SuspendLayout();
             // 
             // status_strip
@@ -124,7 +128,7 @@
             // panorama_picture_box
             // 
             this.panorama_picture_box.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panorama_picture_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panorama_picture_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panorama_picture_box.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panorama_picture_box.Location = new System.Drawing.Point(3, 3);
             this.panorama_picture_box.Name = "panorama_picture_box";
@@ -139,6 +143,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabs_image.Controls.Add(this.tab_panorama);
             this.tabs_image.Controls.Add(this.tab_cubemap);
+            this.tabs_image.Controls.Add(this.tab_preview);
             this.tabs_image.Location = new System.Drawing.Point(12, 1);
             this.tabs_image.Name = "tabs_image";
             this.tabs_image.SelectedIndex = 0;
@@ -473,6 +478,27 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // tab_preview
+            // 
+            this.tab_preview.Controls.Add(this.preview_picture_box);
+            this.tab_preview.Location = new System.Drawing.Point(4, 22);
+            this.tab_preview.Name = "tab_preview";
+            this.tab_preview.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_preview.Size = new System.Drawing.Size(593, 484);
+            this.tab_preview.TabIndex = 2;
+            this.tab_preview.Text = "Preview";
+            this.tab_preview.UseVisualStyleBackColor = true;
+            // 
+            // preview_picture_box
+            // 
+            this.preview_picture_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.preview_picture_box.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.preview_picture_box.Location = new System.Drawing.Point(3, 3);
+            this.preview_picture_box.Name = "preview_picture_box";
+            this.preview_picture_box.Size = new System.Drawing.Size(587, 478);
+            this.preview_picture_box.TabIndex = 0;
+            this.preview_picture_box.TabStop = false;
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,6 +531,8 @@
             this.tab_cubemap_properties.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blur_track_bar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotate_z_track_bar)).EndInit();
+            this.tab_preview.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.preview_picture_box)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -554,6 +582,8 @@
         private System.Windows.Forms.FolderBrowserDialog input_folder_browser_dialog;
         private System.Windows.Forms.FolderBrowserDialog output_folder_browser_dialog;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TabPage tab_preview;
+        private System.Windows.Forms.PictureBox preview_picture_box;
     }
 }
 

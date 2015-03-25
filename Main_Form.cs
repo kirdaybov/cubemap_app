@@ -27,8 +27,7 @@ namespace cubemap_app
         {
             if (open_file_dialog.ShowDialog() == DialogResult.OK)
             {
-                LoadPanorama(open_file_dialog.FileName);
-                DrawPreview();
+                LoadPanorama(open_file_dialog.FileName);                
             }
         }
 
@@ -267,8 +266,6 @@ namespace cubemap_app
 
             panorama_picture_box.BackgroundImage = bm;
             input_file_text_box.Text = FileName;
-
-            timer1.Enabled = true;
         }
 
         private void UpdateCubemap()
@@ -278,6 +275,7 @@ namespace cubemap_app
             CubemapLibrary.make_cube(cube_edge_i, rotate_z_track_bar.Value*10);
             CubemapLibrary.blur(blur_track_bar.Value);
             DrawCubemap();
+            DrawPreview();
 
             EnableCubemapEditing(true);
         }

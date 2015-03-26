@@ -81,14 +81,14 @@ namespace cubemap_app
                     for (int j = 0; j < width; j++)
                     {
                         //int index = 4 * (i + j * width);
-                        //float r = rand.Next(255); //r *= 255;
-                        //float g = rand.Next(255); //g *= 255;
-                        //float b = rand.Next(255); //b *= 255;
+                        float r = render_p[(j + (height - i - 1) * width) * 3    ]; if(r > 1) r = 1.0f;
+                        float g = render_p[(j + (height - i - 1) * width) * 3 + 1]; if(g > 1) g = 1.0f;
+                        float b = render_p[(j + (height - i - 1) * width) * 3 + 2]; if(b > 1) b = 1.0f;
                         //
-                        pixel_cur_line[4*j    ] = 255;
-                        pixel_cur_line[4*j + 1] = (byte)(255*render_p[(j + (height - i - 1) * width) * 3]    );
-                        pixel_cur_line[4*j + 2] = (byte)(255*render_p[(j + (height - i - 1) * width) * 3 + 1]);
-                        pixel_cur_line[4*j + 3] = (byte)(255*render_p[(j + (height - i - 1) * width) * 3 + 2]);
+                        pixel_cur_line[4*j    ] = (byte)(255*r);
+                        pixel_cur_line[4*j + 1] = (byte)(255*g);
+                        pixel_cur_line[4*j + 2] = (byte)(255*b);
+                        pixel_cur_line[4 * j + 3] = 255;
                     }
                 }
             }

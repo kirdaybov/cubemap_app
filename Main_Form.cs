@@ -85,9 +85,9 @@ namespace cubemap_app
                         float g = render_p[(j + (height - i - 1) * width) * 3 + 1]; if(g > 1) g = 1.0f;
                         float b = render_p[(j + (height - i - 1) * width) * 3 + 2]; if(b > 1) b = 1.0f;
                         //
-                        pixel_cur_line[4*j    ] = (byte)(255*r);
+                        pixel_cur_line[4*j    ] = (byte)(255*b);
                         pixel_cur_line[4*j + 1] = (byte)(255*g);
-                        pixel_cur_line[4*j + 2] = (byte)(255*b);
+                        pixel_cur_line[4*j + 2] = (byte)(255*r);
                         pixel_cur_line[4 * j + 3] = 255;
                     }
                 }

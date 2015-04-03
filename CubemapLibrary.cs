@@ -59,6 +59,6 @@ namespace cubemap_app
         public static extern void blur(int power);
 
         [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr render();
+        public static extern IntPtr render(float z_angle);
     }
 }

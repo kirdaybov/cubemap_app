@@ -55,7 +55,7 @@ namespace cubemap_app
 
         private void DrawPreview()
         {
-            IntPtr render = CubemapLibrary.render();
+            IntPtr render = CubemapLibrary.render(rotate_z_track_bar.Value);
             
             int width = 1024;
             int height = 1024;
@@ -200,12 +200,12 @@ namespace cubemap_app
 
         private void rotate_z_track_bar_ValueChanged(object sender, EventArgs e)
         {
-            
+            DrawPreview();
         }
 
         private void rotate_z_track_bar_MouseCaptureChanged(object sender, EventArgs e)
         {
-            UpdateCubemap();
+            //UpdateCubemap();
         }
 
         private void blur_track_bar_MouseCaptureChanged(object sender, EventArgs e)

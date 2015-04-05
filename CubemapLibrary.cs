@@ -23,6 +23,9 @@ namespace cubemap_app
         public static extern void init();
 
         [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void deinit();
+
+        [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void open_hdri(String filename);
 
         [DllImport("hdri_cubemap.dll", CallingConvention = CallingConvention.Cdecl)]

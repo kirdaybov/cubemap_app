@@ -39,6 +39,8 @@
             this.tab_panorama = new System.Windows.Forms.TabPage();
             this.tab_cubemap = new System.Windows.Forms.TabPage();
             this.cubemap_picture_box = new System.Windows.Forms.PictureBox();
+            this.tab_preview = new System.Windows.Forms.TabPage();
+            this.preview_picture_box = new System.Windows.Forms.PictureBox();
             this.tabs_options = new System.Windows.Forms.TabControl();
             this.tab_genaral_properties = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,14 +73,14 @@
             this.input_folder_browser_dialog = new System.Windows.Forms.FolderBrowserDialog();
             this.output_folder_browser_dialog = new System.Windows.Forms.FolderBrowserDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tab_preview = new System.Windows.Forms.TabPage();
-            this.preview_picture_box = new System.Windows.Forms.PictureBox();
             this.status_strip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panorama_picture_box)).BeginInit();
             this.tabs_image.SuspendLayout();
             this.tab_panorama.SuspendLayout();
             this.tab_cubemap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cubemap_picture_box)).BeginInit();
+            this.tab_preview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.preview_picture_box)).BeginInit();
             this.tabs_options.SuspendLayout();
             this.tab_genaral_properties.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -88,8 +90,6 @@
             this.tab_cubemap_properties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blur_track_bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotate_z_track_bar)).BeginInit();
-            this.tab_preview.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.preview_picture_box)).BeginInit();
             this.SuspendLayout();
             // 
             // status_strip
@@ -182,6 +182,27 @@
             this.cubemap_picture_box.Size = new System.Drawing.Size(587, 478);
             this.cubemap_picture_box.TabIndex = 3;
             this.cubemap_picture_box.TabStop = false;
+            // 
+            // tab_preview
+            // 
+            this.tab_preview.Controls.Add(this.preview_picture_box);
+            this.tab_preview.Location = new System.Drawing.Point(4, 22);
+            this.tab_preview.Name = "tab_preview";
+            this.tab_preview.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_preview.Size = new System.Drawing.Size(593, 484);
+            this.tab_preview.TabIndex = 2;
+            this.tab_preview.Text = "Preview";
+            this.tab_preview.UseVisualStyleBackColor = true;
+            // 
+            // preview_picture_box
+            // 
+            this.preview_picture_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.preview_picture_box.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.preview_picture_box.Location = new System.Drawing.Point(3, 3);
+            this.preview_picture_box.Name = "preview_picture_box";
+            this.preview_picture_box.Size = new System.Drawing.Size(587, 478);
+            this.preview_picture_box.TabIndex = 0;
+            this.preview_picture_box.TabStop = false;
             // 
             // tabs_options
             // 
@@ -478,27 +499,6 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // tab_preview
-            // 
-            this.tab_preview.Controls.Add(this.preview_picture_box);
-            this.tab_preview.Location = new System.Drawing.Point(4, 22);
-            this.tab_preview.Name = "tab_preview";
-            this.tab_preview.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_preview.Size = new System.Drawing.Size(593, 484);
-            this.tab_preview.TabIndex = 2;
-            this.tab_preview.Text = "Preview";
-            this.tab_preview.UseVisualStyleBackColor = true;
-            // 
-            // preview_picture_box
-            // 
-            this.preview_picture_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.preview_picture_box.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.preview_picture_box.Location = new System.Drawing.Point(3, 3);
-            this.preview_picture_box.Name = "preview_picture_box";
-            this.preview_picture_box.Size = new System.Drawing.Size(587, 478);
-            this.preview_picture_box.TabIndex = 0;
-            this.preview_picture_box.TabStop = false;
-            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,6 +509,7 @@
             this.Controls.Add(this.status_strip);
             this.Name = "Main_Form";
             this.Text = "Cubemap Editor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Form_FormClosing);
             this.status_strip.ResumeLayout(false);
             this.status_strip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panorama_picture_box)).EndInit();
@@ -516,6 +517,8 @@
             this.tab_panorama.ResumeLayout(false);
             this.tab_cubemap.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cubemap_picture_box)).EndInit();
+            this.tab_preview.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.preview_picture_box)).EndInit();
             this.tabs_options.ResumeLayout(false);
             this.tab_genaral_properties.ResumeLayout(false);
             this.tab_genaral_properties.PerformLayout();
@@ -531,8 +534,6 @@
             this.tab_cubemap_properties.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blur_track_bar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotate_z_track_bar)).EndInit();
-            this.tab_preview.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.preview_picture_box)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

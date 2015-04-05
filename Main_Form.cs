@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using System.Runtime.InteropServices;
 using System.IO;
+using System.Diagnostics;
 
 namespace cubemap_app
 {
@@ -55,8 +56,15 @@ namespace cubemap_app
 
         private void DrawPreview()
         {
+            Stopwatch sw1 = new Stopwatch();
+            Stopwatch sw2 = new Stopwatch();
+
+            sw1.Start();
             IntPtr render = CubemapLibrary.render(rotate_z_track_bar.Value);
-            
+            sw1.Stop();
+
+
+            sw2.Start();
             int width = 1024;
             int height = 1024;
 
@@ -98,6 +106,12 @@ namespace cubemap_app
             bm.UnlockBits(bm_data);
 
             preview_picture_box.BackgroundImage = bm;
+            sw2.Stop();
+
+            String sw1_s = sw1.Elapsed.ToString();
+            String sw2_s = sw2.Elapsed.ToString();
+
+            String x = "";
         }
 
         private void DrawCubemap()
@@ -386,6 +400,11 @@ namespace cubemap_app
             bm.UnlockBits(bm_data);
 
             preview_picture_box.BackgroundImage = bm;
+        }
+
+        private void Main_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CubemapLibrary.deinit();
         }
 
     }
